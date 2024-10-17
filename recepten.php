@@ -64,7 +64,7 @@
             color: #fff;
         }
         .gallery {
-            display: grid;
+            display: flex;
             grid-template-columns: repeat(4, 1fr);
             gap: 10px;
             padding: 20px;
@@ -118,18 +118,18 @@
             font-size: 14px;
             color: #666;
         }
-        .list-item .rating {
-            display: flex;
-            align-items: center;
-        }
-        .list-item .rating i {
-            color: #f5c518;
-        }
-        .list-item .rating .fa-heart {
-            color: #aaa;
-            margin-left: 10px;
-        }
-        .hamburger {
+   .rating i {
+       cursor: pointer;
+       font-size: 24px;
+       color: gold;
+       margin-right: 5px;
+   }
+
+   #like-button {
+       color: red;
+   }
+
+   .hamburger {
             display: none;
             flex-direction: column;
             cursor: pointer;
@@ -179,7 +179,8 @@
    <div class="search-bar">
     <i class="fas fa-search">
     </i>
-    <input placeholder="Hinted search text" type="text"/>
+       <!-- Search Input -->
+       <input type="text" id="search-bar" class="form-control" placeholder="Zoek agenda's..." onkeyup="filterAgenda()">
    </div>
    <div class="nav-links">
     <a href="#">
@@ -252,180 +253,150 @@
     <img alt="List item image" height="60" src="https://storage.googleapis.com/a1aa/image/tWHJDcguY5bJGtquj2rTIykzd0gQ0CjVWq09jrAR0d8ZPV5E.jpg" width="60"/>
     <div class="details">
      <h3>
-      List item
+      Train
      </h3>
      <p>
-      Category • $$ • 1.2 miles away
+      10 min
      </p>
      <p>
-      Supporting line text lorem ipsum dolor sit amet, consectetur.
+         No
      </p>
     </div>
-    <div class="rating">
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="far fa-heart">
-     </i>
-    </div>
+       <div class="rating-container">
+       <div class="rating">
+           <i class="fas fa-star" data-value="1"></i>
+           <i class="fas fa-star" data-value="2"></i>
+           <i class="fas fa-star" data-value="3"></i>
+           <i class="fas fa-star" data-value="4"></i>
+           <i class="far fa-star" data-value="5"></i>
+           <i class="far fa-heart" id="like-button"></i>
+       </div>
+       </div>
    </div>
    <div class="list-item">
     <img alt="List item image" height="60" src="https://storage.googleapis.com/a1aa/image/tWHJDcguY5bJGtquj2rTIykzd0gQ0CjVWq09jrAR0d8ZPV5E.jpg" width="60"/>
     <div class="details">
      <h3>
-      List item
+      burg
      </h3>
      <p>
-      Category • $$ • 1.2 miles away
+      15 min
      </p>
      <p>
-      Supporting line text lorem ipsum dolor sit amet, consectetur.
+      No
      </p>
     </div>
-    <div class="rating">
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="far fa-heart">
-     </i>
-    </div>
+       <div class="rating-container">
+       <div class="rating">
+           <i class="fas fa-star" data-value="1"></i>
+           <i class="fas fa-star" data-value="2"></i>
+           <i class="fas fa-star" data-value="3"></i>
+           <i class="fas fa-star" data-value="4"></i>
+           <i class="far fa-star" data-value="5"></i>
+           <i class="far fa-heart" id="like-button"></i>
+       </div>
+       </div>
    </div>
    <div class="list-item">
     <img alt="List item image" height="60" src="https://storage.googleapis.com/a1aa/image/tWHJDcguY5bJGtquj2rTIykzd0gQ0CjVWq09jrAR0d8ZPV5E.jpg" width="60"/>
     <div class="details">
      <h3>
-      List item
+      Qwerty
      </h3>
      <p>
-      Category • $$ • 1.2 miles away
+      15 min
      </p>
      <p>
-      Supporting line text lorem ipsum dolor sit amet, consectetur.
+         Healthy
      </p>
     </div>
-    <div class="rating">
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="far fa-heart">
-     </i>
-    </div>
+       <div class="rating-container">
+       <div class="rating">
+           <i class="fas fa-star" data-value="1"></i>
+           <i class="fas fa-star" data-value="2"></i>
+           <i class="fas fa-star" data-value="3"></i>
+           <i class="fas fa-star" data-value="4"></i>
+           <i class="far fa-star" data-value="5"></i>
+           <i class="far fa-heart" id="like-button"></i>
+       </div>
+       </div>
    </div>
    <div class="list-item">
     <img alt="List item image" height="60" src="https://storage.googleapis.com/a1aa/image/tWHJDcguY5bJGtquj2rTIykzd0gQ0CjVWq09jrAR0d8ZPV5E.jpg" width="60"/>
     <div class="details">
      <h3>
-      List item
+      prof
      </h3>
      <p>
-      Category • $$ • 1.2 miles away
+      5 min
      </p>
      <p>
-      Supporting line text lorem ipsum dolor sit amet, consectetur.
+         Healthy
      </p>
     </div>
-    <div class="rating">
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="far fa-heart">
-     </i>
-    </div>
+       <div class="rating-container">
+       <div class="rating">
+           <i class="fas fa-star" data-value="1"></i>
+           <i class="fas fa-star" data-value="2"></i>
+           <i class="fas fa-star" data-value="3"></i>
+           <i class="fas fa-star" data-value="4"></i>
+           <i class="far fa-star" data-value="5"></i>
+           <i class="far fa-heart" id="like-button"></i>
+       </div>
+       </div>
    </div>
    <div class="list-item">
     <img alt="List item image" height="60" src="https://storage.googleapis.com/a1aa/image/tWHJDcguY5bJGtquj2rTIykzd0gQ0CjVWq09jrAR0d8ZPV5E.jpg" width="60"/>
     <div class="details">
      <h3>
-      List item
+      Food
      </h3>
      <p>
-      Category • $$ • 1.2 miles away
+      20 min
      </p>
      <p>
       Supporting line text lorem ipsum dolor sit amet, consectetur.
      </p>
     </div>
-    <div class="rating">
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="far fa-heart">
-     </i>
-    </div>
+       <div class="rating-container">
+       <div class="rating">
+           <i class="fas fa-star" data-value="1"></i>
+           <i class="fas fa-star" data-value="2"></i>
+           <i class="fas fa-star" data-value="3"></i>
+           <i class="fas fa-star" data-value="4"></i>
+           <i class="far fa-star" data-value="5"></i>
+           <i class="far fa-heart" id="like-button"></i>
+       </div>
+       </div>
    </div>
    <div class="list-item">
     <img alt="List item image" height="60" src="https://storage.googleapis.com/a1aa/image/tWHJDcguY5bJGtquj2rTIykzd0gQ0CjVWq09jrAR0d8ZPV5E.jpg" width="60"/>
     <div class="details">
      <h3>
-      List item
+      Silt time
      </h3>
      <p>
-      Category • $$ • 1.2 miles away
+      20 min
      </p>
      <p>
-      Supporting line text lorem ipsum dolor sit amet, consectetur.
+      Healthy
      </p>
     </div>
-    <div class="rating">
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="fas fa-star">
-     </i>
-     <i class="far fa-heart">
-     </i>
-    </div>
+       <div class="rating-container">
+       <div class="rating">
+           <i class="fas fa-star" data-value="1"></i>
+           <i class="fas fa-star" data-value="2"></i>
+           <i class="fas fa-star" data-value="3"></i>
+           <i class="fas fa-star" data-value="4"></i>
+           <i class="far fa-star" data-value="5"></i>
+           <i class="far fa-heart" id="like-button"></i>
+       </div>
+       </div>
    </div>
   </div>
-  <script>
-   function toggleMobileNav() {
-            var mobileNav = document.getElementById("mobileNav");
-            if (mobileNav.style.display === "flex") {
-                mobileNav.style.display = "none";
-            } else {
-                mobileNav.style.display = "flex";
-            }
-        }
-  </script>
+
+ <script src="Beroeps_GenZ/assets/Javascript/index.js"></script>
+  <script src="Beroeps_GenZ/assets/Javascript/search.js"></script>
+
  </body>
 </html>
