@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/Javascript/index.js" defer></script>
+    <link rel="icon" href="assets/Images/chef.png">
+    <link rel="stylesheet" href="assets/CSS/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+    <title>Koken Gen Z</title>
+    <!-- cdn voor tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Javascript -->
+     <script src="assets/Javascript/index.js" defer></script>
+    <script src="assets/Javascript/detail.js" defer></script>
+
+</head>
+<body>
+     <!-- Navigation -->
+     <div class="header">
+      <a href="index.php">
+      <img alt="Logo" height="40" src="assets/Images/chef.png" width="40"/>
+      </a>
+     <div class="search-bar">
+      <i class="fas fa-search">
+      </i>
+         <input type="text" id="search-bar" class="form-control" placeholder="Zoek agenda's..." onkeyup="filterAgenda()">
+     </div>
+     <div class="nav-links">
+      <a href="#"> Recepten</a>
+      <a href="#">Toevoegen   </a>
+      <a href="#">Verwijderen </a>    
+      <a class="btn login" href="#">
+        Log in
+      </a>
+      <a class="btn register" href="#">
+       Registreer
+      </a>
+     </div>
+     <div class="hamburger" onclick="toggleMobileNav()">
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+     </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+     <a href="#">
+      Recepten
+     </a>
+     <a href="#">
+      Toevoegen
+     </a>
+     <a href="#">
+      Verwijderen
+     </a>
+     <a class="btn login" href="#">
+      Log in
+     </a>
+     <a class="btn register" href="#">
+      Registreer
+     </a>
+    </div>
+
+    <!-- Showcase recpeten bovenaan -->
+    <div class="bg-gray-100 p-6">
+          <div class="grid grid-rows-2 grid-flow-col gap-4">
+          <!-- 10 plaatjes met variabele breedte en hoogte -->
+          <div class="masonry-item group relative overflow-hidden rounded-l-lg shadow-lg row-span-1 col-span-2">
+            <img src="assets/Images/kapsalon.jpg" alt="recept voorbeeld" class="w-full h-80  object-cover transition-transform duration-300 transform group-hover:scale-110">
+
+                        
+            <p class="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-2xl font-bold opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black bg-opacity-50">
+              Kapsalon
+          </p>
+          </div>
+          <div class="masonry-item group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="assets/Images/gezond_wrap.jpg" alt="recept voorbeeld" class="w-full h-80 object-cover transition-transform duration-300 transform group-hover:scale-110">
+            
+            <p class="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-2xl font-bold opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black bg-opacity-50">
+                Wraps
+            </p>
+        </div>
+        
+          <div class="masonry-item group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="assets/Images/french_toast.jpg" alt="recept voorbeeld" class="w-full h-80 object-cover transition-transform duration-300 transform group-hover:scale-110">
+
+            <p class="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-2xl font-bold opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black bg-opacity-50">
+              French Toast
+          </p>
+          </div>
+          <div class="masonry-item group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="assets/Images/gebakken-rijst.jpg" alt="recept voorbeeld" class="w-full h-80 object-cover transition-transform duration-300 transform group-hover:scale-110">
+
+            <p class="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-2xl font-bold opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black bg-opacity-50">
+              gebakken rijst
+          </p>
+          </div>
+          <div class="masonry-item group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="assets/Images/pasta.jpg" alt="recept voorbeeld" class="w-full h-80 object-cover transition-transform duration-300 transform group-hover:scale-110">
+
+            <p class="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-2xl font-bold opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black bg-opacity-50">
+              Pasta Met Burrata
+          </p>
+          </div>
+          <div class="masonry-item group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="assets/Images/hosomaki_sushi.jpg" alt="recept voorbeeld" class="w-full h-80 object-cover transition-transform duration-300 transform group-hover:scale-110">
+
+            <p class="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-2xl font-bold opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black bg-opacity-50">
+              Sushi
+          </p>
+          </div>
+          <div class="masonry-item group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="assets/Images/lasanga.jpg" alt="recept voorbeeld" class="w-full h-80 object-cover transition-transform duration-300 transform group-hover:scale-110">
+
+            <p class="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-2xl font-bold opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black bg-opacity-50">
+              Lasanga
+          </p>
+          </div>
+          <div class="masonry-item group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="assets/Images/broodje.jpg" alt="recept voorbeeld" class="w-full h-80 object-cover transition-transform duration-300 transform group-hover:scale-110">
+
+            <p class="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-2xl font-bold opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black bg-opacity-50">
+              Broodje Gezond
+          </p>
+          </div>
+          <div class="masonry-item group relative overflow-hidden rounded-lg shadow-lg row-span-1 col-span-2">
+            <img src="assets/Images/maizena.jpg" alt="recept voorbeeld" class="w-full h-80 object-cover transition-transform duration-300 transform group-hover:scale-110">
+
+            <p class="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-2xl font-bold opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black bg-opacity-50">
+             Maizena koekjes
+          </p>
+          </div>
+          <div class="masonry-item group relative overflow-hidden rounded-r-lg shadow-lg">
+            <img src="assets/Images/steak.jpg" alt="recept voorbeeld" class="w-full h-80 object-cover transition-transform duration-300 transform group-hover:scale-110">
+
+            <p class="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-2xl font-bold opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black bg-opacity-50">
+              Steak
+          </p>
+          </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="filter-buttons">
+    <nav class="isolate inline-flex -space-around-px rounded-md shadow-sm" aria-label="Pagination">
+      <a href="#" aria-current="page" class="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Voorgerecht</a>
+      <a href="#" class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 focus:outline-offset-0 md:inline-flex">Hoofdgerecht</a>
+      <a href="#" class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 md:inline-flex">Bijgerecht</a>
+    </nav>
+  </div> 
+
+
+
+  <!-- Listt van recepten -->
+  <ul role="list" class="divide-y divide-gray-100">
+    <li class="flex justify-between gap-x-6 py-5">
+      <div class="flex min-w-0 gap-x-4">
+        <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="assets/Images/cooking.png" alt="">
+        <div class="min-w-0 flex-auto">
+            <div class="list-item">
+          <p class="text-sm font-semibold leading-6 text-gray-900">Gerecht</p>
+          <p class="mt-1 truncate text-xs leading-5 text-gray-500">20 min</p>
+        </div>
+      </div>
+      <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+        <div class="rating flex items-center ml-auto">
+          <div class="rating-container">
+            <div class="rating">
+                <i class="fas fa-star" data-value="1"></i>
+                <i class="fas fa-star" data-value="2"></i>
+                <i class="fas fa-star" data-value="3"></i>
+                <i class="fas fa-star" data-value="4"></i>
+                <i class="far fa-star" data-value="5"></i>
+                <i class="far fa-heart" id="like-button"></i>
+            </div>
+            </div>
+        </div>
+      </div>
+      </div>
+    </li>
+    <li class="flex justify-between gap-x-6 py-5">
+      <div class="flex min-w-0 gap-x-4">
+        <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="assets/Images/cooking.png" alt="">
+        <div class="min-w-0 flex-auto">
+          <div class="list-item">
+            <p class="text-sm font-semibold leading-6 text-gray-900">Gerecht</p>
+            <p class="mt-1 truncate text-xs leading-5 text-gray-500">20 min</p>
+          </div>
+        </div>
+        <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+          <div class="rating flex items-center ml-auto">
+            <div class="rating-container">
+              <div class="rating">
+                  <i class="fas fa-star" data-value="1"></i>
+                  <i class="fas fa-star" data-value="2"></i>
+                  <i class="fas fa-star" data-value="3"></i>
+                  <i class="fas fa-star" data-value="4"></i>
+                  <i class="far fa-star" data-value="5"></i>
+                  <i class="far fa-heart" id="like-button"></i>
+              </div>
+              </div>
+          </div>
+          </div>
+      </div>
+    </li>
+    <li class="flex justify-between gap-x-6 py-5">
+      <div class="flex min-w-0 gap-x-4">
+        <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="assets/Images/cooking.png" alt="">
+        <div class="min-w-0 flex-auto">
+          <div class="list-item">
+            <p class="text-sm font-semibold leading-6 text-gray-900">Gerecht</p>
+            <p class="mt-1 truncate text-xs leading-5 text-gray-500">20 min</p>
+          </div>
+        </div>
+        <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+          <div class="rating flex items-center ml-auto">
+            <div class="rating-container">
+              <div class="rating">
+                  <i class="fas fa-star" data-value="1"></i>
+                  <i class="fas fa-star" data-value="2"></i>
+                  <i class="fas fa-star" data-value="3"></i>
+                  <i class="fas fa-star" data-value="4"></i>
+                  <i class="far fa-star" data-value="5"></i>
+                  <i class="far fa-heart" id="like-button"></i>
+              </div>
+              </div>
+          </div>
+      </div>
+    </li>
+    <li class="flex justify-between gap-x-6 py-5">
+      <div class="flex min-w-0 gap-x-4">
+        <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="assets/Images/cooking.png" alt="">
+        <div class="min-w-0 flex-auto">
+          <div class="list-item">
+            <p class="text-sm font-semibold leading-6 text-gray-900">Gerecht</p>
+            <p class="mt-1 truncate text-xs leading-5 text-gray-500">20 min</p>
+          </div>
+        </div>
+        <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+          <div class="rating flex items-center ml-auto">
+            <div class="rating-container">
+              <div class="rating">
+                  <i class="fas fa-star" data-value="1"></i>
+                  <i class="fas fa-star" data-value="2"></i>
+                  <i class="fas fa-star" data-value="3"></i>
+                  <i class="fas fa-star" data-value="4"></i>
+                  <i class="far fa-star" data-value="5"></i>
+                  <i class="far fa-heart" id="like-button"></i>
+              </div>
+              </div>
+          </div>
+      </div>
+    </li>
+    <li class="flex justify-between gap-x-6 py-5">
+      <div class="flex min-w-0 gap-x-4">
+        <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="assets/Images/cooking.png" alt="">
+        <div class="min-w-0 flex-auto">
+          <div class="list-item">
+              <p class="text-sm font-semibold leading-6 text-gray-900">Gerecht</p>
+              <p class="mt-1 truncate text-xs leading-5 text-gray-500">20 min</p>
+            </div>
+          </div>
+          <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+            <div class="rating flex items-center ml-auto">
+              <div class="rating-container">
+                <div class="rating">
+                    <i class="fas fa-star" data-value="1"></i>
+                    <i class="fas fa-star" data-value="2"></i>
+                    <i class="fas fa-star" data-value="3"></i>
+                    <i class="fas fa-star" data-value="4"></i>
+                    <i class="far fa-star" data-value="5"></i>
+                    <i class="far fa-heart" id="like-button"></i>
+                </div>
+                </div>
+            </div>
+      </div>
+    </li>
+    <li class="flex justify-between gap-x-6 py-5">
+      <div class="flex min-w-0 gap-x-4">
+        <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="assets/Images/cooking.png" alt="">
+        <div class="min-w-0 flex-auto">
+          <div class="list-item">
+            <p class="text-sm font-semibold leading-6 text-gray-900">Gerecht</p>
+            <p class="mt-1 truncate text-xs leading-5 text-gray-500">20 min</p>
+          </div>
+        </div>
+        <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+          <div class="rating flex items-center ml-auto">
+            <div class="rating-container">
+              <div class="rating">
+                  <i class="fas fa-star" data-value="1"></i>
+                  <i class="fas fa-star" data-value="2"></i>
+                  <i class="fas fa-star" data-value="3"></i>
+                  <i class="fas fa-star" data-value="4"></i>
+                  <i class="far fa-star" data-value="5"></i>
+                  <i class="far fa-heart" id="like-button"></i>
+              </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    </li>
+  </ul>
+  
+   </div>
+    
+
+
+</body>
+</html>
